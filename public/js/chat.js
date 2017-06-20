@@ -17,10 +17,34 @@ function scrollToBottom(){
 			
 socket.on('connect', function(){
 	console.log('connected to server');
+	
+	var params = $.deparam(window.location.search);
+	socket.emit('join', params, function(err){
+		if(err){
+			alert(err);
+			window.location.href = "/";
+		} else{
+			console.log('No error');
+		}
+	})
 });
 
 socket.on('disconnect', function(){
 	console.log('connection lost');
+});
+
+/*socket.on('updateUserList', function(users){
+	console.log('Users list', users);
+});*/
+
+socket.on('updateUserList', function(data){
+	//console.log('Users List', data.userList);
+	$('#chat-title').html(data.room);
+
+	$('#user-list').html('');
+	data.userList.forEach(function(user){
+		$('#user-list').append($('<span></span>').html(user + ', '));
+	});
 });
 
 socket.on('newMessage', function(message){

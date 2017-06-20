@@ -9,6 +9,10 @@
 	<body>
 		<div id="chat-window">
 			<form id="message-form">
+				<div class="chat-header">
+					<div id="chat-title"></div>
+					<div id="user-list"></div>
+				</div>
 				<ul id="messages"></ul>
 				<div class='formInputContainer'>
 					<input name="message" type="text" placeholder="Message" auto-focus autocomplete="off" />
@@ -36,6 +40,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 		<script src="/js/libs/moment.js"></script>
 		<script src="/js/libs/mustache.js"></script>
+		<script src="/js/libs/deparam.js"></script>
 		<script src="/js/chat.js"></script>
 	</body>
 </html>
